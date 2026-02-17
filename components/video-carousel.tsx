@@ -5,15 +5,19 @@ import { ChevronLeft, ChevronRight, Play } from "lucide-react";
 import { useState, useRef } from "react";
 
 const videos = [
-  { id: 1, src: "/video/Video.mov", title: "Treatment Session 1", poster: "/images/treatment-1.png" },
-  { id: 2, src: "/video/Video_1.mov", title: "Treatment Session 2", poster: "/images/treatment-2.jpeg" },
-  { id: 3, src: "/video/Video_2.mov", title: "Treatment Session 3", poster: "/images/treatment-3.jpeg" },
-  { id: 4, src: "/video/Video_3.mov", title: "Treatment Session 4", poster: "/images/treatment-4.jpeg" },
-  { id: 5, src: "/video/Video_4.mov", title: "Treatment Session 5", poster: "/images/treatment-5.jpeg" },
-  { id: 6, src: "/video/Video_5.mov", title: "Treatment Session 6", poster: "/images/treatment-6.jpeg" },
-  { id: 7, src: "/video/Video_6.mov", title: "Treatment Session 7", poster: "/images/treatment-7.jpeg" },
-  { id: 8, src: "/video/Video_7.mov", title: "Treatment Session 8", poster: "/images/treatment-1.png" },
-  { id: 9, src: "/video/Video_8.mov", title: "Treatment Session 9", poster: "/images/treatment-2.jpeg" },
+  { id: 1, src: "/video/Video.mov", title: "Treatment Session 1" },
+  { id: 2, src: "/video/Video_1.mov", title: "Treatment Session 2" },
+  { id: 3, src: "/video/Video_2.mov", title: "Treatment Session 3" },
+  { id: 4, src: "/video/Video_3.mov", title: "Treatment Session 4" },
+  { id: 5, src: "/video/Video_4.mov", title: "Treatment Session 5" },
+  { id: 6, src: "/video/Video_5.mov", title: "Treatment Session 6" },
+  { id: 7, src: "/video/Video_6.mov", title: "Treatment Session 7" },
+  { id: 8, src: "/video/Video_7.mov", title: "Treatment Session 8" },
+  { id: 9, src: "/video/Video_8.mov", title: "Treatment Session 9" },
+  { id: 10, src: "/video/v1.mov", title: "Treatment Session 10" },
+  { id: 11, src: "/video/v2.mov", title: "Treatment Session 11" },
+  { id: 12, src: "/video/v3.mov", title: "Treatment Session 12" },
+  { id: 13, src: "/video/v4.mov", title: "Treatment Session 13" },
 ];
 
 export function VideoCarousel() {
@@ -62,13 +66,13 @@ export function VideoCarousel() {
           className="relative max-w-5xl mx-auto"
         >
           {/* Main Video Display */}
-          <div className="relative aspect-video bg-foreground/5 border border-border overflow-hidden">
+          <div className="relative aspect-[4/3] md:aspect-video bg-foreground/5 border border-border overflow-hidden">
             <video
               ref={videoRef}
               key={videos[currentIndex].src}
               className="w-full h-full object-cover"
               controls
-              poster={videos[currentIndex].poster}
+              preload="metadata"
               playsInline
             >
               <source src={videos[currentIndex].src} type="video/quicktime" />
@@ -118,9 +122,11 @@ export function VideoCarousel() {
                   : "border-border hover:border-foreground/40"
               }`}
             >
-              <div
-                className="absolute inset-0 bg-cover bg-center"
-                style={{ backgroundImage: `url(${video.poster})` }}
+              <video
+                className="absolute inset-0 w-full h-full object-cover"
+                src={`${video.src}#t=0.1`}
+                muted
+                preload="metadata"
               />
               <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
                 <Play className={`w-4 h-4 ${index === currentIndex ? "text-accent" : "text-white/70"}`} />

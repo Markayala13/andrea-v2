@@ -3,7 +3,7 @@
 import { motion, useScroll, useTransform } from "framer-motion"
 import Image from "next/image"
 import { useState, useEffect } from "react"
-import { Menu, X } from "lucide-react"
+import { Menu, X, Instagram, Facebook, Link2 } from "lucide-react"
 
 const navLinks = [
   { label: "About", href: "#about" },
@@ -64,6 +64,35 @@ export function Navbar() {
                   {link.label}
                 </a>
               ))}
+              <div className="flex items-center gap-2">
+                <a
+                  href="https://www.instagram.com/angelicaaestheticsnyc?igsh=dmwwM2J1MDhnOTlv&utm_source=qr"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-8 h-8 border border-border flex items-center justify-center hover:border-accent hover:text-accent transition-colors duration-300"
+                  aria-label="Instagram"
+                >
+                  <Instagram className="w-3.5 h-3.5" />
+                </a>
+                <a
+                  href="https://www.facebook.com/share/1DWTBtYagz/?mibextid=wwXIfr"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-8 h-8 border border-border flex items-center justify-center hover:border-accent hover:text-accent transition-colors duration-300"
+                  aria-label="Facebook"
+                >
+                  <Facebook className="w-3.5 h-3.5" />
+                </a>
+                <a
+                  href="https://linktr.ee/Angelica_Aesthetics"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-8 h-8 border border-border flex items-center justify-center hover:border-accent hover:text-accent transition-colors duration-300"
+                  aria-label="Linktree"
+                >
+                  <Link2 className="w-3.5 h-3.5" />
+                </a>
+              </div>
               <a
                 href="#book"
                 className="bg-primary text-primary-foreground px-6 py-2 font-sans text-sm tracking-wider hover:bg-foreground/90 transition-colors duration-300"
@@ -110,12 +139,46 @@ export function Navbar() {
                 {link.label}
               </motion.a>
             ))}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={isOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 0.3, delay: navLinks.length * 0.1 }}
+              className="flex items-center gap-4"
+            >
+              <a
+                href="https://www.instagram.com/angelicaaestheticsnyc?igsh=dmwwM2J1MDhnOTlv&utm_source=qr"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 border border-border flex items-center justify-center hover:border-accent hover:text-accent transition-colors duration-300"
+                aria-label="Instagram"
+              >
+                <Instagram className="w-4 h-4" />
+              </a>
+              <a
+                href="https://www.facebook.com/share/1DWTBtYagz/?mibextid=wwXIfr"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 border border-border flex items-center justify-center hover:border-accent hover:text-accent transition-colors duration-300"
+                aria-label="Facebook"
+              >
+                <Facebook className="w-4 h-4" />
+              </a>
+              <a
+                href="https://linktr.ee/Angelica_Aesthetics"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 border border-border flex items-center justify-center hover:border-accent hover:text-accent transition-colors duration-300"
+                aria-label="Linktree"
+              >
+                <Link2 className="w-4 h-4" />
+              </a>
+            </motion.div>
             <motion.a
               href="#book"
               onClick={() => setIsOpen(false)}
               initial={{ opacity: 0, y: 20 }}
               animate={isOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.3, delay: navLinks.length * 0.1 }}
+              transition={{ duration: 0.3, delay: (navLinks.length + 1) * 0.1 }}
               className="mt-4 bg-primary text-primary-foreground px-10 py-4 font-sans text-sm tracking-[0.2em] uppercase"
             >
               Book Now

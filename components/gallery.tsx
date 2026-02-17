@@ -28,6 +28,30 @@ const images = [
     src: "/images/treatment-2.jpeg",
     alt: "Treatment preparation"
   },
+  {
+    src: "/images/treatment-1.png",
+    alt: "Laser treatment session"
+  },
+  {
+    src: "/images/image0 (1).png",
+    alt: "Aesthetics treatment result"
+  },
+  {
+    src: "/images/image1 (1).png",
+    alt: "Before and after treatment"
+  },
+  {
+    src: "/images/image2 (1).png",
+    alt: "Skin treatment close-up"
+  },
+  {
+    src: "/images/image3.png",
+    alt: "Professional laser session"
+  },
+  {
+    src: "/images/image4.jpeg",
+    alt: "Treatment results"
+  },
 ]
 
 export function Gallery() {

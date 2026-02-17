@@ -40,7 +40,7 @@ export function Contact() {
           className="flex justify-center gap-6 mb-16"
         >
           <a
-            href="https://www.instagram.com/angelica_aesthetics_/"
+            href="https://www.instagram.com/angelicaaestheticsnyc?igsh=dmwwM2J1MDhnOTlv&utm_source=qr"
             target="_blank"
             rel="noopener noreferrer"
             className="group flex items-center gap-3 px-6 py-3 border border-accent/30 hover:border-accent hover:bg-accent/10 transition-all duration-300"
@@ -49,7 +49,7 @@ export function Contact() {
             <span className="font-sans text-sm text-primary-foreground/80 group-hover:text-primary-foreground transition-colors">Instagram</span>
           </a>
           <a
-            href="https://www.facebook.com/AngelicaAestheticsNY"
+            href="https://www.facebook.com/share/1DWTBtYagz/?mibextid=wwXIfr"
             target="_blank"
             rel="noopener noreferrer"
             className="group flex items-center gap-3 px-6 py-3 border border-accent/30 hover:border-accent hover:bg-accent/10 transition-all duration-300"
@@ -58,7 +58,7 @@ export function Contact() {
             <span className="font-sans text-sm text-primary-foreground/80 group-hover:text-primary-foreground transition-colors">Facebook</span>
           </a>
           <a
-            href="https://linktr.ee/angelicaaesthetics"
+            href="https://linktr.ee/Angelica_Aesthetics"
             target="_blank"
             rel="noopener noreferrer"
             className="group flex items-center gap-3 px-6 py-3 border border-accent/30 hover:border-accent hover:bg-accent/10 transition-all duration-300"

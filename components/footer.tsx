@@ -64,7 +64,7 @@ export function Footer() {
             <h4 className="font-serif text-lg mb-4">Follow Us</h4>
             <div className="flex items-center gap-3">
               <a
-                href="https://www.instagram.com/angelica_aesthetics_/"
+                href="https://www.instagram.com/angelicaaestheticsnyc?igsh=dmwwM2J1MDhnOTlv&utm_source=qr"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 border border-border flex items-center justify-center hover:border-accent hover:text-accent transition-colors duration-300"
@@ -73,7 +73,7 @@ export function Footer() {
                 <Instagram className="w-4 h-4" />
               </a>
               <a
-                href="https://www.facebook.com/AngelicaAestheticsNY"
+                href="https://www.facebook.com/share/1DWTBtYagz/?mibextid=wwXIfr"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 border border-border flex items-center justify-center hover:border-accent hover:text-accent transition-colors duration-300"
@@ -82,7 +82,7 @@ export function Footer() {
                 <Facebook className="w-4 h-4" />
               </a>
               <a
-                href="https://linktr.ee/angelicaaesthetics"
+                href="https://linktr.ee/Angelica_Aesthetics"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 border border-border flex items-center justify-center hover:border-accent hover:text-accent transition-colors duration-300"
