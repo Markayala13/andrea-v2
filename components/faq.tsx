@@ -6,28 +6,16 @@ import { ChevronDown } from "lucide-react"
 
 const faqs = [
   {
-    question: "How Many Treatments Will I Need?",
-    answer: "Most clients see optimal results with 6-8 treatments spaced 4-6 weeks apart. The exact number depends on your hair type, skin tone, and the area being treated. During your consultation, we'll create a personalized treatment plan tailored to your needs."
+    question: "How many treatments will I need?",
+    answer: "Most clients need 9-12 sessions for optimal, long-lasting hair reduction. Treatments are spaced 4-8 weeks apart, depending on the area, since laser only targets hair in its active growth phase. The exact number of sessions may vary based on the treatment area, hair thickness, skin type, and hormonal factors."
   },
   {
-    question: "How Quickly Will I See Results?",
-    answer: "Many clients notice a reduction in hair growth after their first session. However, because hair grows in cycles, multiple treatments are necessary to target all follicles. You'll see progressive improvement with each session, with optimal results typically visible after 4-6 treatments."
+    question: "Is laser Hair Removal safe for all skin types?",
+    answer: "Yes! Our advanced GentleMax Pro Plus by Candela laser technology is safe and effective for multiple skin types, including darker skin tones. We customize the settings for each client to ensure the safest, most effective treatment possible while delivering optimal results."
   },
   {
-    question: "Is Laser Hair Removal Safe for All Skin Types?",
-    answer: "Yes! Our advanced laser technology is safe and effective for multiple skin types, including darker skin tones. We customize settings for each client to ensure the safest, most effective treatment possible."
-  },
-  {
-    question: "Does Laser Hair Removal Hurt?",
-    answer: "Most clients describe the sensation as a light snap or warm pinch. Our advanced technology includes built-in cooling to maximize comfort. The treatment is generally well-tolerated, and any discomfort is brief and minimal."
-  },
-  {
-    question: "How Should I Prepare for My Treatment?",
-    answer: "Avoid sun exposure, tanning, and self-tanners for 2 weeks before your appointment. Shave the treatment area 24 hours before your session. Avoid waxing, plucking, or threading for 4-6 weeks prior, as the laser needs to target the hair follicle."
-  },
-  {
-    question: "Can This Be Combined With Other Treatments?",
-    answer: "Yes, laser hair removal can be combined with many other aesthetic treatments. During your consultation, we'll discuss your goals and create a comprehensive treatment plan that may include complementary services for optimal results."
+    question: "Does Laser Hair Removal Hurts?",
+    answer: "Most clients say laser hair removal feels like a quick little rubber band snap — slightly uncomfortable, but very tolerable. The good news? The sensation is super fast, and treatments are quick."
   },
 ]
 

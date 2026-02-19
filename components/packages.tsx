@@ -84,7 +84,7 @@ const addOns = [
 
 export function Packages() {
   return (
-    <section id="packages" className="py-24 md:py-32 bg-background">
+    <section id="treatments" className="py-24 md:py-32 bg-background">
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
         <motion.div
@@ -95,7 +95,7 @@ export function Packages() {
           className="text-center mb-20"
         >
           <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-foreground mb-6 tracking-wide">
-            Our Services
+            Our Treatments
           </h2>
           <div className="w-24 h-px bg-accent mx-auto mb-6" />
           <p className="font-sans text-muted-foreground max-w-2xl mx-auto text-lg">

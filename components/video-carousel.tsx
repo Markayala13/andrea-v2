@@ -7,17 +7,17 @@ import { useState, useRef } from "react";
 const videos = [
   { id: 1, src: "/video/Video.mov", title: "Treatment Session 1" },
   { id: 2, src: "/video/Video_1.mov", title: "Treatment Session 2" },
-  { id: 3, src: "/video/Video_2.mov", title: "Treatment Session 3" },
-  { id: 4, src: "/video/Video_3.mov", title: "Treatment Session 4" },
-  { id: 5, src: "/video/Video_4.mov", title: "Treatment Session 5" },
-  { id: 6, src: "/video/Video_5.mov", title: "Treatment Session 6" },
-  { id: 7, src: "/video/Video_6.mov", title: "Treatment Session 7" },
-  { id: 8, src: "/video/Video_7.mov", title: "Treatment Session 8" },
-  { id: 9, src: "/video/Video_8.mov", title: "Treatment Session 9" },
-  { id: 10, src: "/video/v1.mov", title: "Treatment Session 10" },
-  { id: 11, src: "/video/v2.mov", title: "Treatment Session 11" },
-  { id: 12, src: "/video/v3.mov", title: "Treatment Session 12" },
-  { id: 13, src: "/video/v4.mov", title: "Treatment Session 13" },
+  { id: 3, src: "/video/Video_3.mov", title: "Treatment Session 3" },
+  { id: 4, src: "/video/Video_4.mov", title: "Treatment Session 4" },
+  { id: 5, src: "/video/Video_5.mov", title: "Treatment Session 5" },
+  { id: 6, src: "/video/Video_6.mov", title: "Treatment Session 6" },
+  { id: 7, src: "/video/Video_8.mov", title: "Treatment Session 7" },
+  { id: 8, src: "/video/v1.mov", title: "Treatment Session 8" },
+  { id: 9, src: "/video/v2.mov", title: "Treatment Session 9" },
+  { id: 10, src: "/video/v3.mov", title: "Treatment Session 10" },
+  { id: 11, src: "/video/v4.mov", title: "Treatment Session 11" },
+  { id: 12, src: "/video/video 1v.mov", title: "Treatment Session 12" },
+  { id: 13, src: "/video/video 2v.mov", title: "Treatment Session 13" },
 ];
 
 export function VideoCarousel() {

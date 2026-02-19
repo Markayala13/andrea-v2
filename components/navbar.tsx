@@ -7,7 +7,7 @@ import { Menu, X, Instagram, Facebook, Link2 } from "lucide-react"
 
 const navLinks = [
   { label: "About", href: "#about" },
-  { label: "Packages", href: "#packages" },
+  { label: "Treatments", href: "#treatments" },
   { label: "Gallery", href: "#gallery" },
   { label: "FAQ", href: "#faq" },
   { label: "Contact", href: "#book" },
