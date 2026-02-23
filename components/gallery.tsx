@@ -17,10 +17,6 @@ const images = [
     alt: "Underarm treatment close-up"
   },
   {
-    src: "/images/treatment-5.jpeg",
-    alt: "Laser treatment in progress"
-  },
-  {
     src: "/images/treatment-6.jpeg",
     alt: "Close-up of laser treatment"
   },

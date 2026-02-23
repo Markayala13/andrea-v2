@@ -2,8 +2,12 @@
 
 import { motion } from "framer-motion"
 import { MapPin, Mail, Phone, Clock, Instagram, Facebook, Link2 } from "lucide-react"
+import { useState } from "react"
+import { CancellationPolicyModal } from "@/components/cancellation-policy-modal"
 
 export function Contact() {
+  const [policyOpen, setPolicyOpen] = useState(false)
+
   return (
     <section id="book" className="py-24 md:py-32 bg-primary text-primary-foreground">
       <div className="max-w-7xl mx-auto px-6">
@@ -29,7 +33,18 @@ export function Contact() {
           >
             Book Now
           </motion.a>
+          <p className="mt-4 font-sans text-sm text-primary-foreground/80">
+            By booking, you agree to our{" "}
+            <button
+              onClick={() => setPolicyOpen(true)}
+              className="text-accent underline underline-offset-2 hover:text-accent/80 transition-colors"
+            >
+              Cancellation Policy
+            </button>
+          </p>
         </motion.div>
+
+        <CancellationPolicyModal open={policyOpen} onClose={() => setPolicyOpen(false)} />
 
         {/* Social Media Section */}
         <motion.div

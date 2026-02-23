@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform } from "framer-motion"
 import Image from "next/image"
 import { useState, useEffect } from "react"
 import { Menu, X, Instagram, Facebook, Link2 } from "lucide-react"
+import { CancellationPolicyModal } from "@/components/cancellation-policy-modal"
 
 const navLinks = [
   { label: "About", href: "#about" },
@@ -16,6 +17,7 @@ const navLinks = [
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [hasScrolled, setHasScrolled] = useState(false)
+  const [policyOpen, setPolicyOpen] = useState(false)
   const { scrollY } = useScroll()
   
   const backgroundColor = useTransform(
@@ -93,12 +95,20 @@ export function Navbar() {
                   <Link2 className="w-3.5 h-3.5" />
                 </a>
               </div>
-              <a
-                href="#book"
-                className="bg-primary text-primary-foreground px-6 py-2 font-sans text-sm tracking-wider hover:bg-foreground/90 transition-colors duration-300"
-              >
-                Book Now
-              </a>
+              <div className="flex flex-col items-center gap-1">
+                <a
+                  href="#book"
+                  className="bg-primary text-primary-foreground px-6 py-2 font-sans text-sm tracking-wider hover:bg-foreground/90 transition-colors duration-300"
+                >
+                  Book Now
+                </a>
+                <button
+                  onClick={() => setPolicyOpen(true)}
+                  className="font-sans text-[10px] tracking-wider text-muted-foreground hover:text-accent transition-colors duration-300 underline underline-offset-2"
+                >
+                  Cancellation Policy
+                </button>
+              </div>
             </div>
 
             {/* Mobile Menu Button */}
@@ -142,7 +152,7 @@ export function Navbar() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={isOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.3, delay: navLinks.length * 0.1 }}
+              transition={{ duration: 0.3, delay: (navLinks.length + 1) * 0.1 }}
               className="flex items-center gap-4"
             >
               <a
@@ -178,14 +188,25 @@ export function Navbar() {
               onClick={() => setIsOpen(false)}
               initial={{ opacity: 0, y: 20 }}
               animate={isOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.3, delay: (navLinks.length + 1) * 0.1 }}
+              transition={{ duration: 0.3, delay: (navLinks.length + 2) * 0.1 }}
               className="mt-4 bg-primary text-primary-foreground px-10 py-4 font-sans text-sm tracking-[0.2em] uppercase"
             >
               Book Now
             </motion.a>
+            <motion.button
+              onClick={() => { setIsOpen(false); setPolicyOpen(true) }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={isOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 0.3, delay: (navLinks.length + 3) * 0.1 }}
+              className="font-sans text-xs tracking-wider text-muted-foreground hover:text-accent transition-colors underline underline-offset-2"
+            >
+              Cancellation Policy
+            </motion.button>
           </div>
         </div>
       </motion.div>
+
+      <CancellationPolicyModal open={policyOpen} onClose={() => setPolicyOpen(false)} />
     </>
   )
 }

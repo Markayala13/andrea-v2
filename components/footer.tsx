@@ -3,8 +3,12 @@
 import { motion } from "framer-motion"
 import Image from "next/image"
 import { Instagram, Facebook, Link2, Mail, Phone } from "lucide-react"
+import { useState } from "react"
+import { CancellationPolicyModal } from "@/components/cancellation-policy-modal"
 
 export function Footer() {
+  const [policyOpen, setPolicyOpen] = useState(false)
+
   return (
     <footer className="py-16 bg-secondary border-t border-border">
       <div className="max-w-7xl mx-auto px-6">
@@ -100,12 +104,22 @@ export function Footer() {
             <p className="font-sans text-xs text-muted-foreground">
               © {new Date().getFullYear()} Angelica Aesthetics. All rights reserved.
             </p>
-            <p className="font-sans text-xs text-muted-foreground">
-              37 West 26th Street, 7th Floor, New York, NY 10010
-            </p>
+            <div className="flex items-center gap-4">
+              <button
+                onClick={() => setPolicyOpen(true)}
+                className="font-sans text-xs text-muted-foreground hover:text-accent transition-colors underline underline-offset-2"
+              >
+                Cancellation Policy
+              </button>
+              <p className="font-sans text-xs text-muted-foreground">
+                37 West 26th Street, 7th Floor, New York, NY 10010
+              </p>
+            </div>
           </div>
         </div>
       </div>
+
+      <CancellationPolicyModal open={policyOpen} onClose={() => setPolicyOpen(false)} />
     </footer>
   )
 }
