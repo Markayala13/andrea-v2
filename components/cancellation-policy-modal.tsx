@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion"
 import { X } from "lucide-react"
+import { useLanguage } from "@/lib/language-context"
 
 interface CancellationPolicyModalProps {
   open: boolean
@@ -9,6 +10,9 @@ interface CancellationPolicyModalProps {
 }
 
 export function CancellationPolicyModal({ open, onClose }: CancellationPolicyModalProps) {
+  const { t } = useLanguage()
+  const p = t.policy
+
   return (
     <AnimatePresence>
       {open && (
@@ -29,7 +33,7 @@ export function CancellationPolicyModal({ open, onClose }: CancellationPolicyMod
           >
             <div className="p-8">
               <div className="flex items-start justify-between mb-6">
-                <h2 className="font-serif text-2xl md:text-3xl font-light text-foreground tracking-wide">Cancellation Policy</h2>
+                <h2 className="font-serif text-2xl md:text-3xl font-light text-foreground tracking-wide">{p.title}</h2>
                 <button
                   onClick={onClose}
                   className="ml-4 flex-shrink-0 w-8 h-8 border border-border flex items-center justify-center hover:border-accent hover:text-accent transition-colors"
@@ -39,40 +43,40 @@ export function CancellationPolicyModal({ open, onClose }: CancellationPolicyMod
               </div>
               <div className="w-16 h-px bg-accent mb-6" />
               <p className="font-sans text-sm text-muted-foreground leading-relaxed mb-6">
-                At Angelica Aesthetics, your time and satisfaction are very important to us. To ensure we can provide the best service to all of our clients, we kindly ask that you review our cancellation policy below:
+                {p.intro}
               </p>
 
-              <h3 className="font-serif text-lg text-foreground mb-3">Appointment Cancellations & Rescheduling</h3>
+              <h3 className="font-serif text-lg text-foreground mb-3">{p.section1Title}</h3>
               <p className="font-sans text-sm text-muted-foreground leading-relaxed mb-3">
-                We require at least <span className="text-foreground font-medium">24 hours' notice</span> to cancel or reschedule an appointment. This allows us to accommodate other clients who may be waiting for an opening.
+                {p.section1p1.before}<span className="text-foreground font-medium">{p.section1p1.bold}</span>{p.section1p1.after}
               </p>
               <p className="font-sans text-sm text-muted-foreground leading-relaxed mb-3">
-                Cancellations made less than 24 hours in advance will result in a <span className="text-foreground font-medium">$50 late cancellation fee</span>.
+                {p.section1p2.before}<span className="text-foreground font-medium">{p.section1p2.bold}</span>{p.section1p2.after}
               </p>
               <p className="font-sans text-sm text-muted-foreground leading-relaxed mb-6">
-                If you do not show up for your appointment without notice, you will be charged a <span className="text-foreground font-medium">$75 no-show fee</span>.
+                {p.section1p3.before}<span className="text-foreground font-medium">{p.section1p3.bold}</span>{p.section1p3.after}
               </p>
 
-              <h3 className="font-serif text-lg text-foreground mb-3">Running Late?</h3>
+              <h3 className="font-serif text-lg text-foreground mb-3">{p.section2Title}</h3>
               <p className="font-sans text-sm text-muted-foreground leading-relaxed mb-6">
-                We understand things happen! If you are running late, please contact us as soon as possible. Arriving more than <span className="text-foreground font-medium">10 minutes late</span> may result in shortened service time or a rescheduled appointment, depending on availability.
+                {p.section2p.before}<span className="text-foreground font-medium">{p.section2p.bold}</span>{p.section2p.after}
               </p>
 
-              <h3 className="font-serif text-lg text-foreground mb-3">Package Appointments</h3>
+              <h3 className="font-serif text-lg text-foreground mb-3">{p.section3Title}</h3>
               <p className="font-sans text-sm text-muted-foreground leading-relaxed mb-6">
-                Missed or late-cancelled appointments under a package plan will count as used sessions if not canceled within the 24-hour window.
+                {p.section3p}
               </p>
 
-              <h3 className="font-serif text-lg text-foreground mb-3">How to Cancel or Reschedule</h3>
-              <p className="font-sans text-sm text-muted-foreground mb-2">You can cancel or reschedule your appointment through:</p>
+              <h3 className="font-serif text-lg text-foreground mb-3">{p.section4Title}</h3>
+              <p className="font-sans text-sm text-muted-foreground mb-2">{p.section4intro}</p>
               <ul className="font-sans text-sm text-muted-foreground space-y-1 mb-6 list-none">
-                <li className="flex items-center gap-2"><span className="w-1 h-1 bg-accent rounded-full flex-shrink-0" />Our online booking system</li>
-                <li className="flex items-center gap-2"><span className="w-1 h-1 bg-accent rounded-full flex-shrink-0" />Calling or texting us at <a href="tel:+13475244770" className="text-accent hover:underline">347 524 4770</a></li>
-                <li className="flex items-center gap-2"><span className="w-1 h-1 bg-accent rounded-full flex-shrink-0" />Emailing us at <a href="mailto:info@angelicaaesthetics.com" className="text-accent hover:underline">info@angelicaaesthetics.com</a></li>
+                <li className="flex items-center gap-2"><span className="w-1 h-1 bg-accent rounded-full flex-shrink-0" />{p.section4item1}</li>
+                <li className="flex items-center gap-2"><span className="w-1 h-1 bg-accent rounded-full flex-shrink-0" />{p.section4item2} <a href="tel:+13475244770" className="text-accent hover:underline">347 524 4770</a></li>
+                <li className="flex items-center gap-2"><span className="w-1 h-1 bg-accent rounded-full flex-shrink-0" />{p.section4item3} <a href="mailto:info@angelicaaestheticsnyc.com" className="text-accent hover:underline">info@angelicaaestheticsnyc.com</a></li>
               </ul>
 
               <p className="font-sans text-sm text-muted-foreground leading-relaxed border-t border-border pt-6">
-                Thank you for respecting our time and policies. This helps us maintain a high level of care for all of our clients.
+                {p.closing}
               </p>
             </div>
           </motion.div>

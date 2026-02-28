@@ -2,8 +2,11 @@
 
 import { motion } from "framer-motion"
 import Image from "next/image"
+import { useLanguage } from "@/lib/language-context"
 
 export function Hero() {
+  const { t } = useLanguage()
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
       {/* Background Image */}
@@ -40,7 +43,7 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           className="font-serif text-5xl md:text-7xl lg:text-8xl font-light tracking-wide text-foreground mb-6"
         >
-          LASER HAIR REMOVAL
+          {t.hero.title}
         </motion.h1>
 
         <motion.div
@@ -56,8 +59,8 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
           className="font-sans text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed tracking-wide"
         >
-          Advanced laser technology for smooth, confident skin. <br className="hidden md:block" />
-          Located in Manhattan, New York.
+          {t.hero.subtitle} <br className="hidden md:block" />
+          {t.hero.location}
         </motion.p>
 
         <motion.a
@@ -69,7 +72,7 @@ export function Hero() {
           whileTap={{ scale: 0.98 }}
           className="inline-block bg-primary text-primary-foreground px-12 py-4 font-sans text-sm tracking-[0.2em] uppercase hover:bg-foreground/90 transition-colors duration-300"
         >
-          Book Now
+          {t.hero.bookNow}
         </motion.a>
       </div>
 

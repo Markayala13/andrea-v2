@@ -3,24 +3,11 @@
 import { motion, AnimatePresence } from "framer-motion"
 import { useState, useEffect } from "react"
 import { ChevronDown } from "lucide-react"
-
-const faqs = [
-  {
-    question: "How many treatments will I need?",
-    answer: "Most clients need 9-12 sessions for optimal, long-lasting hair reduction. Treatments are spaced 4-8 weeks apart, depending on the area, since laser only targets hair in its active growth phase. The exact number of sessions may vary based on the treatment area, hair thickness, skin type, and hormonal factors."
-  },
-  {
-    question: "Is laser Hair Removal safe for all skin types?",
-    answer: "Yes! Our advanced GentleMax Pro Plus by Candela laser technology is safe and effective for multiple skin types, including darker skin tones. We customize the settings for each client to ensure the safest, most effective treatment possible while delivering optimal results."
-  },
-  {
-    question: "Does Laser Hair Removal Hurts?",
-    answer: "Most clients say laser hair removal feels like a quick little rubber band snap — slightly uncomfortable, but very tolerable. The good news? The sensation is super fast, and treatments are quick."
-  },
-]
+import { useLanguage } from "@/lib/language-context"
 
 export function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
+  const { t } = useLanguage()
 
   useEffect(() => {
     const script = document.createElement("script")
@@ -44,13 +31,13 @@ export function FAQ() {
           className="text-center mb-16"
         >
           <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-foreground mb-6 tracking-wide">
-            Frequently Asked Questions
+            {t.faq.title}
           </h2>
           <div className="w-24 h-px bg-accent mx-auto" />
         </motion.div>
 
         <div className="space-y-4">
-          {faqs.map((faq, index) => (
+          {t.faq.items.map((faq, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}

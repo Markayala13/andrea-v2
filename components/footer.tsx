@@ -5,9 +5,11 @@ import Image from "next/image"
 import { Instagram, Facebook, Link2, Mail, Phone } from "lucide-react"
 import { useState } from "react"
 import { CancellationPolicyModal } from "@/components/cancellation-policy-modal"
+import { useLanguage } from "@/lib/language-context"
 
 export function Footer() {
   const [policyOpen, setPolicyOpen] = useState(false)
+  const { t } = useLanguage()
 
   return (
     <footer className="py-16 bg-secondary border-t border-border">
@@ -28,7 +30,7 @@ export function Footer() {
               className="h-16 w-auto mb-4"
             />
             <p className="font-sans text-sm text-muted-foreground leading-relaxed">
-              Advanced laser hair removal and skin-enhancing treatments in Manhattan, New York.
+              {t.footer.description}
             </p>
           </motion.div>
 
@@ -39,21 +41,28 @@ export function Footer() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <h4 className="font-serif text-lg mb-4">Contact</h4>
+            <h4 className="font-serif text-lg mb-4">{t.footer.contact}</h4>
             <div className="space-y-3">
-              <a 
-                href="tel:+13475244770" 
+              <a
+                href="tel:+13475244770"
                 className="flex items-center gap-3 font-sans text-sm text-muted-foreground hover:text-accent transition-colors"
               >
                 <Phone className="w-4 h-4 text-accent" />
                 (347) 524-4770
               </a>
-              <a 
-                href="mailto:angelicaaestheticsny@gmail.com" 
+              <a
+                href="mailto:angelicaaestheticsny@gmail.com"
                 className="flex items-center gap-3 font-sans text-sm text-muted-foreground hover:text-accent transition-colors"
               >
                 <Mail className="w-4 h-4 text-accent" />
                 angelicaaestheticsny@gmail.com
+              </a>
+              <a
+                href="mailto:info@angelicaaestheticsnyc.com"
+                className="flex items-center gap-3 font-sans text-sm text-muted-foreground hover:text-accent transition-colors"
+              >
+                <Mail className="w-4 h-4 text-accent" />
+                info@angelicaaestheticsnyc.com
               </a>
             </div>
           </motion.div>
@@ -65,7 +74,7 @@ export function Footer() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <h4 className="font-serif text-lg mb-4">Follow Us</h4>
+            <h4 className="font-serif text-lg mb-4">{t.footer.followUs}</h4>
             <div className="flex items-center gap-3">
               <a
                 href="https://www.instagram.com/angelicaaestheticsnyc?igsh=dmwwM2J1MDhnOTlv&utm_source=qr"
@@ -102,14 +111,14 @@ export function Footer() {
         <div className="pt-8 border-t border-border">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="font-sans text-xs text-muted-foreground">
-              © {new Date().getFullYear()} Angelica Aesthetics. All rights reserved.
+              © {new Date().getFullYear()} Angelica Aesthetics. {t.footer.rights}
             </p>
             <div className="flex items-center gap-4">
               <button
                 onClick={() => setPolicyOpen(true)}
                 className="font-sans text-xs text-muted-foreground hover:text-accent transition-colors underline underline-offset-2"
               >
-                Cancellation Policy
+                {t.footer.cancellationPolicy}
               </button>
               <p className="font-sans text-xs text-muted-foreground">
                 37 West 26th Street, 7th Floor, New York, NY 10010

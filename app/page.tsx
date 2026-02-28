@@ -9,10 +9,12 @@ import { Contact } from "@/components/contact"
 import { Footer } from "@/components/footer"
 import { CustomCursor } from "@/components/custom-cursor"
 import { Preloader } from "@/components/preloader"
+import { LanguageProvider } from "@/lib/language-context"
+import { WhatsAppButton } from "@/components/whatsapp-button"
 
 export default function Home() {
   return (
-    <>
+    <LanguageProvider>
       <Preloader />
       <CustomCursor />
       <main className="overflow-hidden">
@@ -26,6 +28,7 @@ export default function Home() {
         <Contact />
         <Footer />
       </main>
-    </>
+      <WhatsAppButton />
+    </LanguageProvider>
   )
 }

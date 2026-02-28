@@ -5,21 +5,57 @@ import Image from "next/image"
 import { useState, useEffect } from "react"
 import { Menu, X, Instagram, Facebook, Link2 } from "lucide-react"
 import { CancellationPolicyModal } from "@/components/cancellation-policy-modal"
+import { useLanguage } from "@/lib/language-context"
 
-const navLinks = [
-  { label: "About", href: "#about" },
-  { label: "Treatments", href: "#treatments" },
-  { label: "Gallery", href: "#gallery" },
-  { label: "FAQ", href: "#faq" },
-  { label: "Contact", href: "#book" },
-]
+function LanguageSwitcher({ className = "" }: { className?: string }) {
+  const { language, setLanguage } = useLanguage()
+
+  return (
+    <div className={`flex items-center gap-1 ${className}`}>
+      <button
+        onClick={() => setLanguage("en")}
+        className={`flex items-center gap-1.5 px-2.5 py-1 font-sans text-xs tracking-wider transition-all duration-300 ${
+          language === "en"
+            ? "text-foreground border-b border-accent"
+            : "text-muted-foreground hover:text-foreground"
+        }`}
+        aria-label="English"
+      >
+        <span className="text-base leading-none">🇺🇸</span>
+        <span>EN</span>
+      </button>
+      <span className="text-border text-xs">|</span>
+      <button
+        onClick={() => setLanguage("es")}
+        className={`flex items-center gap-1.5 px-2.5 py-1 font-sans text-xs tracking-wider transition-all duration-300 ${
+          language === "es"
+            ? "text-foreground border-b border-accent"
+            : "text-muted-foreground hover:text-foreground"
+        }`}
+        aria-label="Español"
+      >
+        <span className="text-base leading-none">🇪🇸</span>
+        <span>ES</span>
+      </button>
+    </div>
+  )
+}
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [hasScrolled, setHasScrolled] = useState(false)
   const [policyOpen, setPolicyOpen] = useState(false)
   const { scrollY } = useScroll()
-  
+  const { t } = useLanguage()
+
+  const navLinks = [
+    { label: t.nav.about, href: "#about" },
+    { label: t.nav.treatments, href: "#treatments" },
+    { label: t.nav.gallery, href: "#gallery" },
+    { label: t.nav.faq, href: "#faq" },
+    { label: t.nav.contact, href: "#book" },
+  ]
+
   const backgroundColor = useTransform(
     scrollY,
     [0, 100],
@@ -59,7 +95,7 @@ export function Navbar() {
             <div className="hidden md:flex items-center gap-8">
               {navLinks.map((link) => (
                 <a
-                  key={link.label}
+                  key={link.href}
                   href={link.href}
                   className="font-sans text-sm tracking-wider text-foreground hover:text-accent transition-colors duration-300"
                 >
@@ -95,34 +131,41 @@ export function Navbar() {
                   <Link2 className="w-3.5 h-3.5" />
                 </a>
               </div>
+
+              {/* Language Switcher Desktop */}
+              <LanguageSwitcher />
+
               <div className="flex flex-col items-center gap-1">
                 <a
                   href="#book"
                   className="bg-primary text-primary-foreground px-6 py-2 font-sans text-sm tracking-wider hover:bg-foreground/90 transition-colors duration-300"
                 >
-                  Book Now
+                  {t.nav.bookNow}
                 </a>
                 <button
                   onClick={() => setPolicyOpen(true)}
                   className="font-sans text-[10px] tracking-wider text-muted-foreground hover:text-accent transition-colors duration-300 underline underline-offset-2"
                 >
-                  Cancellation Policy
+                  {t.nav.cancellationPolicy}
                 </button>
               </div>
             </div>
 
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="md:hidden p-2"
-              aria-label="Toggle menu"
-            >
-              {isOpen ? (
-                <X className="w-6 h-6 text-foreground" />
-              ) : (
-                <Menu className="w-6 h-6 text-foreground" />
-              )}
-            </button>
+            {/* Mobile: Language switcher + Hamburger */}
+            <div className="md:hidden flex items-center gap-3">
+              <LanguageSwitcher />
+              <button
+                onClick={() => setIsOpen(!isOpen)}
+                className="p-2"
+                aria-label="Toggle menu"
+              >
+                {isOpen ? (
+                  <X className="w-6 h-6 text-foreground" />
+                ) : (
+                  <Menu className="w-6 h-6 text-foreground" />
+                )}
+              </button>
+            </div>
           </div>
         </div>
       </motion.nav>
@@ -138,7 +181,7 @@ export function Navbar() {
           <div className="flex flex-col items-center justify-center h-full gap-8">
             {navLinks.map((link, index) => (
               <motion.a
-                key={link.label}
+                key={link.href}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
                 initial={{ opacity: 0, y: 20 }}
@@ -191,7 +234,7 @@ export function Navbar() {
               transition={{ duration: 0.3, delay: (navLinks.length + 2) * 0.1 }}
               className="mt-4 bg-primary text-primary-foreground px-10 py-4 font-sans text-sm tracking-[0.2em] uppercase"
             >
-              Book Now
+              {t.nav.bookNow}
             </motion.a>
             <motion.button
               onClick={() => { setIsOpen(false); setPolicyOpen(true) }}
@@ -200,7 +243,7 @@ export function Navbar() {
               transition={{ duration: 0.3, delay: (navLinks.length + 3) * 0.1 }}
               className="font-sans text-xs tracking-wider text-muted-foreground hover:text-accent transition-colors underline underline-offset-2"
             >
-              Cancellation Policy
+              {t.nav.cancellationPolicy}
             </motion.button>
           </div>
         </div>

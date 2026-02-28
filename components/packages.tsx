@@ -2,87 +2,47 @@
 
 import { motion } from "framer-motion"
 import { Sparkles, Zap, Plus } from "lucide-react"
+import { useLanguage } from "@/lib/language-context"
 
-// Facial Treatments
-const facialTreatments = [
-  {
-    name: "Express Facial",
-    price: "$89",
-    duration: "30 min",
-    description: "Get glowing in just 30 minutes. Deeply cleanses, exfoliates, and hydrates for an instant, radiant boost. Perfect for busy clients.",
-    featured: false,
-  },
-  {
-    name: "Deep Cleansing Facial",
-    price: "$150",
-    duration: "60 min",
-    description: "A deep reset for your skin. Removes buildup, unclogs pores, exfoliates dull skin using microdermabrasion, steam, extractions, and a nourishing mask.",
-    featured: false,
-  },
-  {
-    name: "Glow Genesis",
-    price: "$150",
-    duration: "50 min",
-    description: "Laser Genesis for a glassy-skin glow. Boosts collagen, fades acne scars, calms redness, shrinks pores without peeling or downtime.",
-    featured: true,
-  },
-  {
-    name: "The Lifted Glow Facial",
-    price: "$175",
-    duration: "60 min",
-    description: "A rejuvenating treatment using Radio Frequency to firm, lift, and boost elasticity while nourishing serums leave skin silky and radiant.",
-    featured: false,
-  },
-  {
-    name: "Luminous Lift Facial",
-    price: "$225",
-    duration: "70 min",
-    description: "A sculpting, tension-relieving facial using Gua Sha to lift, define, and reveal your natural glow. Promotes lymphatic drainage and boosts circulation.",
-    featured: true,
-  },
-  {
-    name: "Microneedling Treatment",
-    price: "Consult",
-    duration: "90 min",
-    description: "Stimulates collagen and elastin using ultra-fine needles to smooth texture, fade acne scars, minimize pores, and soften fine lines. Best in a series of 3-6 sessions.",
-    featured: false,
-  },
-]
+const FACIAL_PRICES = ["$89", "$150", "$150", "$175", "$225", "Consult"]
+const FACIAL_DURATIONS = ["30 min", "60 min", "50 min", "60 min", "70 min", "90 min"]
+const FACIAL_FEATURED = [false, false, true, false, true, false]
 
-// Laser Hair Removal
-const laserSmallAreas = [
-  { area: "Upper Lip", price: "$33" },
-  { area: "Chin", price: "$45" },
-  { area: "Sideburns", price: "$45" },
-  { area: "Ears", price: "$45" },
-]
-
-const laserMediumAreas = [
-  { area: "Underarms", price: "$75" },
-  { area: "Bikini Line", price: "$99" },
-  { area: "Half Arms", price: "$99" },
-  { area: "Half Legs", price: "$125" },
-  { area: "Inner Thighs", price: "$99" },
-  { area: "Lower Back", price: "$75" },
-]
-
-const laserLargeAreas = [
-  { area: "Brazilian", price: "$150" },
-  { area: "Chest", price: "$97" },
-  { area: "Full Back", price: "$175" },
-  { area: "Full Arms", price: "$175" },
-  { area: "Abdomen + Chest", price: "$175" },
-  { area: "Full Legs", price: "$225" },
-]
-
-// Add-ons
-const addOns = [
-  { name: "Gua Sha Sculpt & Lift", price: "$25", description: "Lift, contour, and promote lymphatic drainage with a soothing facial massage." },
-  { name: "LED Light Therapy", price: "$25", description: "Target fine lines, acne, or redness with gentle, skin-reviving LED light." },
-  { name: "Oxygen Glow Infusion", price: "$25", description: "Boosts hydration, stimulates collagen, and leaves skin radiant and plump." },
-]
+const LASER_SMALL_PRICES = ["$33", "$45", "$45", "$45"]
+const LASER_MEDIUM_PRICES = ["$75", "$99", "$99", "$125", "$99", "$75"]
+const LASER_LARGE_PRICES = ["$150", "$97", "$175", "$175", "$175", "$225"]
+const ADDON_PRICES = ["$25", "$25", "$25"]
 
 export function Packages() {
+  const { t } = useLanguage()
+
+  const facialTreatments = t.treatments.facials.map((f, i) => ({
+    ...f,
+    price: FACIAL_PRICES[i],
+    duration: FACIAL_DURATIONS[i],
+    featured: FACIAL_FEATURED[i],
+  }))
+
+  const laserSmallAreas = t.treatments.laserSmallAreas.map((item, i) => ({
+    ...item,
+    price: LASER_SMALL_PRICES[i],
+  }))
+
+  const laserMediumAreas = t.treatments.laserMediumAreas.map((item, i) => ({
+    ...item,
+    price: LASER_MEDIUM_PRICES[i],
+  }))
+
+  const laserLargeAreas = t.treatments.laserLargeAreas.map((item, i) => ({
+    ...item,
+    price: LASER_LARGE_PRICES[i],
+  }))
+
+  const addOns = t.treatments.addOns.map((addon, i) => ({
+    ...addon,
+    price: ADDON_PRICES[i],
+  }))
+
   return (
     <section id="treatments" className="py-24 md:py-32 bg-background">
       <div className="max-w-7xl mx-auto px-6">
@@ -95,11 +55,11 @@ export function Packages() {
           className="text-center mb-20"
         >
           <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-foreground mb-6 tracking-wide">
-            Our Treatments
+            {t.treatments.title}
           </h2>
           <div className="w-24 h-px bg-accent mx-auto mb-6" />
           <p className="font-sans text-muted-foreground max-w-2xl mx-auto text-lg">
-            Premium aesthetic treatments designed to enhance your natural beauty with lasting results.
+            {t.treatments.subtitle}
           </p>
         </motion.div>
 
@@ -114,14 +74,14 @@ export function Packages() {
           <div className="flex items-center justify-center gap-3 mb-12">
             <Sparkles className="w-5 h-5 text-accent" />
             <h3 className="font-serif text-3xl md:text-4xl font-light text-foreground tracking-wide">
-              Facial Treatments
+              {t.treatments.facialTitle}
             </h3>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {facialTreatments.map((treatment, index) => (
               <motion.div
-                key={treatment.name}
+                key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
@@ -135,7 +95,7 @@ export function Packages() {
               >
                 {treatment.featured && (
                   <div className="absolute -top-3 left-6 bg-accent text-primary-foreground text-xs px-3 py-1 tracking-wider">
-                    POPULAR
+                    {t.treatments.popular}
                   </div>
                 )}
                 <div className="flex justify-between items-start mb-4">
@@ -164,11 +124,11 @@ export function Packages() {
           <div className="flex items-center justify-center gap-3 mb-6">
             <Zap className="w-5 h-5 text-accent" />
             <h3 className="font-serif text-3xl md:text-4xl font-light text-foreground tracking-wide">
-              Laser Hair Removal
+              {t.treatments.laserTitle}
             </h3>
           </div>
           <p className="font-sans text-muted-foreground max-w-2xl mx-auto text-center mb-12">
-            Uses focused light to disable the hair follicle safely and effectively. Cooling is used for comfort, pulses are quick, and there's no downtime.
+            {t.treatments.laserDescription}
           </p>
 
           <div className="grid lg:grid-cols-3 gap-8">
@@ -180,8 +140,8 @@ export function Packages() {
               transition={{ duration: 0.5 }}
               className="bg-card border border-border p-8"
             >
-              <h4 className="font-serif text-xl text-center text-foreground mb-2">Small Areas</h4>
-              <p className="text-center text-sm text-muted-foreground mb-6">Quick & precise</p>
+              <h4 className="font-serif text-xl text-center text-foreground mb-2">{t.treatments.smallAreas}</h4>
+              <p className="text-center text-sm text-muted-foreground mb-6">{t.treatments.smallAreasSubtitle}</p>
               <div className="space-y-4">
                 {laserSmallAreas.map((item) => (
                   <div key={item.area} className="flex justify-between items-center py-2 border-b border-border/50 last:border-0">
@@ -200,8 +160,8 @@ export function Packages() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="bg-card border border-accent/30 p-8 shadow-lg shadow-accent/5"
             >
-              <h4 className="font-serif text-xl text-center text-foreground mb-2">Medium Areas</h4>
-              <p className="text-center text-sm text-accent mb-6">Most popular</p>
+              <h4 className="font-serif text-xl text-center text-foreground mb-2">{t.treatments.mediumAreas}</h4>
+              <p className="text-center text-sm text-accent mb-6">{t.treatments.mediumAreasSubtitle}</p>
               <div className="space-y-4">
                 {laserMediumAreas.map((item) => (
                   <div key={item.area} className="flex justify-between items-center py-2 border-b border-border/50 last:border-0">
@@ -220,8 +180,8 @@ export function Packages() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="bg-card border border-border p-8"
             >
-              <h4 className="font-serif text-xl text-center text-foreground mb-2">Large Areas</h4>
-              <p className="text-center text-sm text-muted-foreground mb-6">Full coverage</p>
+              <h4 className="font-serif text-xl text-center text-foreground mb-2">{t.treatments.largeAreas}</h4>
+              <p className="text-center text-sm text-muted-foreground mb-6">{t.treatments.largeAreasSubtitle}</p>
               <div className="space-y-4">
                 {laserLargeAreas.map((item) => (
                   <div key={item.area} className="flex justify-between items-center py-2 border-b border-border/50 last:border-0">
@@ -244,14 +204,14 @@ export function Packages() {
           <div className="flex items-center justify-center gap-3 mb-12">
             <Plus className="w-5 h-5 text-accent" />
             <h3 className="font-serif text-3xl md:text-4xl font-light text-foreground tracking-wide">
-              Glow Boost Add-Ons
+              {t.treatments.addOnsTitle}
             </h3>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {addOns.map((addon, index) => (
               <motion.div
-                key={addon.name}
+                key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
