@@ -115,18 +115,20 @@ export function Contact() {
               <Mail className="w-5 h-5 text-accent" />
             </div>
             <h3 className="font-serif text-lg mb-2">{t.contact.email}</h3>
-            <a
-              href="mailto:angelicaaestheticsny@gmail.com"
-              className="font-sans text-sm text-primary-foreground/70 hover:text-accent transition-colors"
-            >
-              angelicaaestheticsny@gmail.com
-            </a>
-            <a
-              href="mailto:info@angelicaaestheticsnyc.com"
-              className="font-sans text-sm text-primary-foreground/70 hover:text-accent transition-colors"
-            >
-              info@angelicaaestheticsnyc.com
-            </a>
+            <div className="flex flex-col gap-1">
+              <a
+                href="mailto:angelicaaestheticsny@gmail.com"
+                className="font-sans text-sm text-primary-foreground/70 hover:text-accent transition-colors"
+              >
+                angelicaaestheticsny@gmail.com
+              </a>
+              <a
+                href="mailto:info@angelicaaestheticsnyc.com"
+                className="font-sans text-sm text-primary-foreground/70 hover:text-accent transition-colors"
+              >
+                info@angelicaaestheticsnyc.com
+              </a>
+            </div>
           </motion.div>
 
           <motion.div

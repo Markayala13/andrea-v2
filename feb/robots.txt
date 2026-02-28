@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.angelicaaestheticsnyc.com/sitemap.xml

@@ -1,5 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'export',
+  distDir: 'feb v4',
   typescript: {
     ignoreBuildErrors: true,
   },

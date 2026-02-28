@@ -102,6 +102,16 @@ const translations = {
       findUs: "Find Us",
       findUsSubtitle: "In the heart of Manhattan, Flatiron District",
     },
+    gallery: {
+      title: "Treatment Gallery",
+      subtitle: "A glimpse into our professional laser hair removal treatments using advanced technology",
+    },
+    video: {
+      label: "Watch Our Process",
+      title: "See the Transformation",
+      subtitle: "Experience our treatments through the eyes of our clients. Watch real sessions and witness the precision and care we bring to every appointment.",
+      follow: "Follow us on Instagram for more treatment videos and results",
+    },
     footer: {
       description: "Advanced laser hair removal and skin-enhancing treatments in Manhattan, New York.",
       contact: "Contact",
@@ -224,6 +234,16 @@ const translations = {
       hoursLine2: "9am - 7pm",
       findUs: "Encuéntranos",
       findUsSubtitle: "En el corazón de Manhattan, Distrito Flatiron",
+    },
+    gallery: {
+      title: "Galería de Tratamientos",
+      subtitle: "Un vistazo a nuestros tratamientos profesionales de depilación láser con tecnología avanzada",
+    },
+    video: {
+      label: "Mira Nuestro Proceso",
+      title: "Mira la Transformación",
+      subtitle: "Vive nuestros tratamientos a través de los ojos de nuestros clientes. Observa sesiones reales y comprueba la precisión y el cuidado que ponemos en cada cita.",
+      follow: "Síguenos en Instagram para más videos de tratamientos y resultados",
     },
     footer: {
       description: "Depilación láser avanzada y tratamientos para la piel en Manhattan, Nueva York.",

@@ -33,7 +33,15 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    ".next/dev/types/**/*.ts"
+    ".next/dev/types/**/*.ts",
+    "feb/types/**/*.ts",
+    "feb/dev/types/**/*.ts",
+    "feb v2/types/**/*.ts",
+    "feb v2/dev/types/**/*.ts",
+    "feb v3/types/**/*.ts",
+    "feb v3/dev/types/**/*.ts",
+    "feb v4/types/**/*.ts",
+    "feb v4/dev/types/**/*.ts"
   ],
   "exclude": [
     "node_modules"

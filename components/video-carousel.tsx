@@ -3,26 +3,28 @@
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, Play } from "lucide-react";
 import { useState, useRef } from "react";
+import { useLanguage } from "@/lib/language-context";
 
 const videos = [
-  { id: 1, src: "/video/Video.mov", title: "Treatment Session 1" },
-  { id: 2, src: "/video/Video_1.mov", title: "Treatment Session 2" },
-  { id: 3, src: "/video/Video_3.mov", title: "Treatment Session 3" },
-  { id: 4, src: "/video/Video_4.mov", title: "Treatment Session 4" },
-  { id: 5, src: "/video/Video_5.mov", title: "Treatment Session 5" },
-  { id: 6, src: "/video/Video_6.mov", title: "Treatment Session 6" },
-  { id: 7, src: "/video/Video_8.mov", title: "Treatment Session 7" },
-  { id: 8, src: "/video/v1.mov", title: "Treatment Session 8" },
-  { id: 9, src: "/video/v2.mov", title: "Treatment Session 9" },
-  { id: 10, src: "/video/v3.mov", title: "Treatment Session 10" },
-  { id: 11, src: "/video/v4.mov", title: "Treatment Session 11" },
-  { id: 12, src: "/video/video 1v.mov", title: "Treatment Session 12" },
-  { id: 13, src: "/video/video 2v.mov", title: "Treatment Session 13" },
+  { id: 1, src: "/video/Video.mov" },
+  { id: 2, src: "/video/Video_1.mov" },
+  { id: 3, src: "/video/Video_3.mov" },
+  { id: 4, src: "/video/Video_4.mov" },
+  { id: 5, src: "/video/Video_5.mov" },
+  { id: 6, src: "/video/Video_6.mov" },
+  { id: 7, src: "/video/Video_8.mov" },
+  { id: 8, src: "/video/v1.mov" },
+  { id: 9, src: "/video/v2.mov" },
+  { id: 10, src: "/video/v3.mov" },
+  { id: 11, src: "/video/v4.mov" },
+  { id: 12, src: "/video/video 1v.mov" },
+  { id: 13, src: "/video/video 2v.mov" },
 ];
 
 export function VideoCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const { t } = useLanguage();
 
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % videos.length);
@@ -47,14 +49,13 @@ export function VideoCarousel() {
           className="text-center mb-16"
         >
           <p className="text-sm tracking-[0.3em] uppercase text-muted-foreground mb-4">
-            Watch Our Process
+            {t.video.label}
           </p>
           <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-foreground mb-6">
-            See the Transformation
+            {t.video.title}
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed">
-            Experience our treatments through the eyes of our clients. Watch real sessions
-            and witness the precision and care we bring to every appointment.
+            {t.video.subtitle}
           </p>
         </motion.div>
 
@@ -77,7 +78,6 @@ export function VideoCarousel() {
             >
               <source src={videos[currentIndex].src} type="video/quicktime" />
               <source src={videos[currentIndex].src} type="video/mp4" />
-              Your browser does not support the video tag.
             </video>
 
             {/* Decorative corners */}
@@ -146,7 +146,7 @@ export function VideoCarousel() {
           viewport={{ once: true }}
           className="text-center text-muted-foreground mt-12 text-sm tracking-wide"
         >
-          Follow us on Instagram for more treatment videos and results
+          {t.video.follow}
         </motion.p>
       </div>
     </section>

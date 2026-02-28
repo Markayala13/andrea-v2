@@ -1,0 +1,74 @@
+[00:00:02.352] Server  LOG      ✓ Ready in 1593ms
+[00:00:16.771] Server  LOG      ○ Compiling / ...
+[00:00:19.764] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:20.355] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:00:20.355] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:00:20.355] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3001/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3001/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1772235449949} /_vercel/insights/view
+[00:00:21.181] Browser WARN    Image with src "/images/logo.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[00:12:26.137] Server  LOG      ✓ Compiled in 334ms
+[00:13:50.249] Server  LOG      ✓ Compiled in 199ms
+[00:20:35.628] Server  LOG      ✓ Compiled in 184ms
+[00:20:55.237] Server  LOG      ✓ Compiled in 112ms
+[00:21:12.523] Server  LOG      ✓ Compiled in 126ms
+[00:21:44.953] Server  LOG      ✓ Compiled in 116ms
+[00:22:00.902] Server  LOG      ✓ Compiled in 115ms
+[00:23:58.559] Server  LOG      ✓ Compiled in 122ms
+[00:24:26.385] Server  LOG      ✓ Compiled in 115ms
+[00:24:52.342] Server  LOG      ✓ Compiled in 105ms
+[00:34:32.295] Server  WARN     ⚠ Fast Refresh had to perform a full reload when ./lib/language-context.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[00:34:32.321] Server  LOG      ✓ Compiled in 105ms
+[00:34:32.852] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:34:33.282] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html lang="en">
+                          <head>
+                          <body
+                            className="cormorant_garamond_e4a17d35-module__PRCUfW__variable montserrat_d9d58e2e-module..."
+-                           cz-shortcut-listen="true"
+                          >
+                  ...
+
+[00:34:33.282] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:34:33.282] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:34:33.282] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3001/#about color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3001/#about","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1772237502876} /_vercel/insights/view
+[00:35:09.883] Server  WARN     ⚠ Fast Refresh had to perform a full reload when ./lib/language-context.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[00:35:09.903] Server  LOG      ✓ Compiled in 128ms
+[00:35:10.407] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:35:10.776] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:35:10.776] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:35:10.776] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3001/#about color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3001/#about","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1772237540373} /_vercel/insights/view
+[00:35:11.732] Browser WARN    Image with src "/images/logo.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[00:37:57.324] Server  LOG      ✓ Compiled in 267ms
+[00:38:19.800] Server  LOG      ✓ Compiled in 175ms
+[00:42:32.810] Server  LOG      ✓ Compiled in 154ms
+[00:43:58.899] Server  LOG      ✓ Compiled in 111ms
+[00:44:25.393] Server  LOG      ✓ Compiled in 103ms
